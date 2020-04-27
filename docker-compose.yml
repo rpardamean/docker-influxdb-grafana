@@ -43,5 +43,5 @@ networks:
   polainfluxgrafnet:
   
 volumes:
-  grafanapola-data:
+  influxpola-data:
   grafanapola-data:
