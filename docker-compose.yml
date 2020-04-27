@@ -9,8 +9,6 @@ influxdb:
     # Data persistency
     # sudo mkdir -p /srv/docker/influxdb/data
     - influxpola-data:/var/lib/influxdb
-  networks:
-    - polainfluxgrafnet
     
 telegraf:
   image: telegraf:latest
@@ -19,8 +17,6 @@ telegraf:
     - influxdb
   volumes:
     - ./telegraf.conf:/etc/telegraf/telegraf.conf:ro
-  networks:
-    - polainfluxgrafnet
 
 grafana:
   image: grafana/grafana:latest
@@ -36,12 +32,3 @@ grafana:
     # Data persistency
     # sudo mkdir -p /srv/docker/grafana/data; chown 472:472 /srv/docker/grafana/data
     - grafanapola-data:/var/lib/grafana
-  networks:
-    - polainfluxgrafnet
-    
-networks:
-  polainfluxgrafnet:
-  
-volumes:
-  influxpola-data:
-  grafanapola-data:
